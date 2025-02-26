@@ -1,44 +1,186 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="https://example.com/css/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>欢迎光临</title>
     <style>
-        body, html {
-            height: 100%;
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            overflow-x: hidden;
         }
+        
         .container {
+            max-width: 1200px;
+            padding: 2rem;
             text-align: center;
         }
-        .container h1 {
-            font-size: 3em;
+        
+        .welcome-text {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .sub-text {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #6c63ff;
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: #333;
         }
-        @media (max-width: 768px) {
-            .container h1 {
-                font-size: 2em;
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #6c63ff, #4834d4);
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.9s backwards;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        @media (max-width: 480px) {
-            .container h1 {
-                font-size: 1.5em;
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 3rem;
+            }
+            
+            .sub-text {
+                font-size: 1.2rem;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>你好！</h1>
-<h1>欢迎来到测试页</h1>
-        <p>858866181@qq.com</p>
+        <h1 class="welcome-text">欢迎来到我们的世界</h1>
+        <p class="sub-text">在这里，创意与技术相遇，我们致力于打造最优质的体验，让每一次访问都充满惊喜与发现。</p>
+        
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-lightbulb floating"></i>
+                <h3>创新思维</h3>
+                <p>我们不断挑战自我，探索未知，用创新的思维解决问题，创造价值。</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-heart floating"></i>
+                <h3>用心服务</h3>
+                <p>每一个细节都倾注我们的热情，我们用心聆听，精心设计，为您提供卓越体验。</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-rocket floating"></i>
+                <h3>无限可能</h3>
+                <p>突破界限，探索未来，与我们一起开启无限可能的旅程。</p>
+            </div>
+        </div>
+        
+        <a href="#explore" class="cta-button">开始探索</a>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 简单的页面加载动画效果
+            const container = document.querySelector('.container');
+            container.style.opacity = 0;
+            
+            setTimeout(() => {
+                container.style.transition = 'opacity 1s ease';
+                container.style.opacity = 1;
+            }, 100);
+        });
+    </script>
 </body>
-</html>
+</html> 
